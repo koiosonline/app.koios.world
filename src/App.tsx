@@ -16,6 +16,7 @@ import ExplanationVideos from "./pages/ExplanationVideos";
 import Earn from "./pages/Earn";
 import VacancyDetail from "./pages/VacancyDetail";
 import { MarkdownEditor } from "./pages/MarkdownEditor";
+import ThreeJsDemo from "./pages/ThreeJsDemo";
 
 
 export const App = () => {
@@ -32,7 +33,7 @@ export const App = () => {
                   <Route path="/editor" exact component={MarkdownEditor}/>
                 </Switch>
         </Route>
-        
+
         <Route>
           <Layout>
             <Switch>
@@ -47,6 +48,7 @@ export const App = () => {
                 <Route path="/earn" exact component={Earn} />
                 <Route path="/earn/:vacancyDetail" exact component={VacancyDetail} />
                 <Route path="/" exact><Redirect to="/worlds"/></Route>
+                <Route path="/threejsdemo" exact component={ThreeJsDemo}/>
                 <Route component={Error404}/>
             </Switch>
           </Layout>
