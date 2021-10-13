@@ -26,7 +26,10 @@
     }
     &:hover {
       box-shadow: 0px 0px 21px -10px rgba(110,110,110,1);
-      transform: translateY(-0.5em);
+      //transform: translateY(-0.5em);
+      .world-container {
+        transform: translateY(-50px);
+      }
     }
     &__img {
       width: 10em;

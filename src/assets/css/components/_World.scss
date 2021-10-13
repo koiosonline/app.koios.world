@@ -1,0 +1,37 @@
+.world-container {
+  height: 160px;
+  width: 160px;
+  margin: 0 auto;
+  transition: transform .5s ease;
+  //z-index: -1;
+
+  @include for-size($tablet) {
+    //height: 60vh;
+    //width: 100vw;
+    margin-top: unset;
+    margin-bottom: unset;
+  }
+
+  @include for-size($desktop) {
+    //height: 60vh;
+    //width: 100vw;
+    margin-top: unset;
+    margin-bottom: unset;
+  }
+
+  &__world {
+    height: 160px;
+    width: 160px;
+    //height: 515px;
+    //width: 300px;
+    margin: 0 auto;
+    //z-index: -1;
+    pointer-events: none;
+
+    @include for-size($desktop) {
+      //height: 60vh;
+      //width: 60vw;
+      pointer-events: unset;
+    }
+  }
+}
