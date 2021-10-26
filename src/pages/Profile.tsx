@@ -1,6 +1,6 @@
 import SetupModal from "../components/SetupModal";
 import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   selectedAccount,
   profilePicture,
@@ -10,16 +10,25 @@ import { ShowBadges } from "../components/Web3/Badges";
 import { ProfileTokenInformation } from "../components/Web3/Tokencount";
 import { Icon } from "../components/Util/Icon";
 import ExploreMore from "../components/ExploreMore";
-import {Connect, Disconnect} from "../components/Web3/ConnectionCheck";
+import { Connect, Disconnect } from "../components/Web3/ConnectionCheck";
 import { web3Modal } from "../components/Web3/WalletProvider";
 import { UserContext } from "../Context/UserContext";
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert, { AlertProps } from '@mui/material/Alert';
+
+const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
+  props,
+  ref,
+) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 export const Profile = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [badges, setBadges] = useState<any[]>();
   const [tokens, setTokens] = useState<any>();
-  const {user, setUser} = useContext(UserContext);
-
+  const { user, setUser } = useContext(UserContext);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
 
   const modalState = () => {
     setIsModalOpen(!isModalOpen);
@@ -32,6 +41,7 @@ export const Profile = () => {
 
   const connectProvider = async () => {
     const checkProvider = await Connect();
+    handleConnectClick();
     setUser(checkProvider);
   }
 
@@ -40,9 +50,21 @@ export const Profile = () => {
     setUser(checkProvider);
   }
 
-  useEffect( () => {
+  const handleConnectClick = () => {
+    setOpenSnackbar(true);
+  };
+
+  const handleCloseSnackbar = (event?: React.SyntheticEvent, reason?: string) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpenSnackbar(false);
+  };
+
+  useEffect(() => {
     if (web3Modal.cachedProvider) {
-    connectProvider();
+      connectProvider();
     } else {
       disconnectProvider();
     }
@@ -89,6 +111,11 @@ export const Profile = () => {
             >
               <p>Connect wallet</p>
             </button>
+            <Snackbar open={openSnackbar} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+              <Alert onClose={handleCloseSnackbar} severity="error" sx={{ width: '100%' }}>
+                No metamask detected!
+              </Alert>
+            </Snackbar>
           </div>
         </div>
       )}
@@ -97,33 +124,33 @@ export const Profile = () => {
         <div className={"container"}>
           <div className={'actionContainer'}>
             <div className={'actionContainer__actions'}>
-            <div onClick={disconnectProvider} className={'actionContainer__actions__item'}>
-              <p>Logout</p>
-              <Icon type="sign-out" className="profile__sign-out" />
-            </div>
-            <a href={'https://clay.self.id/'} target={'_blank'} rel={'noreferrer noopener'} className={'actionContainer__actions__item'}>
-              <p>Edit profile</p>
-              <Icon type="edit-profile" className="profile__sign-out" />
-            </a>
+              <div onClick={disconnectProvider} className={'actionContainer__actions__item'}>
+                <p>Logout</p>
+                <Icon type="sign-out" className="profile__sign-out" />
+              </div>
+              <a href={'https://clay.self.id/'} target={'_blank'} rel={'noreferrer noopener'} className={'actionContainer__actions__item'}>
+                <p>Edit profile</p>
+                <Icon type="edit-profile" className="profile__sign-out" />
+              </a>
             </div>
           </div>
           {!profilePicture ?
             <img
-                src={"/images/pepe.png"}
-                alt={"Pepe the frog"}
-                className={"profile__img"}
+              src={"/images/pepe.png"}
+              alt={"Pepe the frog"}
+              className={"profile__img"}
             />
-              :
-              <img
-                  src={profilePicture}
-                  alt={"User"}
-                  className={"profile__img profile__img--active"}
-              />
+            :
+            <img
+              src={profilePicture}
+              alt={"User"}
+              className={"profile__img profile__img--active"}
+            />
           }
           {!profileName ?
-              <h1 className={"profile__name"}>No 3Box profile name</h1>
-              :
-              <h1 className={"profile__name"}>{profileName}</h1>
+            <h1 className={"profile__name"}>No 3Box profile name</h1>
+            :
+            <h1 className={"profile__name"}>{profileName}</h1>
           }
           <div className="profile__network">
             <p className="profile__address">{selectedAccount}</p>
