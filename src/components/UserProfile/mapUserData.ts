@@ -1,6 +1,6 @@
 import { DecentralizedProfile } from '../../types/UserProfile/DecentralizedProfile';
 import { DiscordProfile } from '../../types/UserProfile/DiscordProfile';
-import { FormatPublicKey } from '../Util/FormatPublicKey';
+import { formatPublicKey } from '../Util/formatPublicKey';
 import { getCidImage } from '../Web3/Ipfs';
 import { TokenBalance } from '../../types/UserProfile/TokenBalance';
 import { getUserRank } from './getUserRank';
@@ -36,7 +36,7 @@ export const mapUserData = async (
 ) => {
   return {
     publicKey: accountAddress,
-    publicKeyFormatted: FormatPublicKey(accountAddress),
+    publicKeyFormatted: formatPublicKey(accountAddress),
     name: decentralizedProfile?.name,
     emoji: decentralizedProfile?.emoji,
     description: decentralizedProfile?.description,

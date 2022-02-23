@@ -9,18 +9,21 @@ import { mapUserData } from '../UserProfile/mapUserData';
 import { getDiscordProfile } from '../../api/Api';
 import { getTitanTokenCount } from '../UserProfile/getTitanTokenCount';
 import { AutoNetworkSwitch } from './AutoNetworkSwitch';
-
+import { SnackbarContext } from '../../Context/SnackbarContext';
 
 export const useWeb3 = () => {
   const { setIsAuthenticating, isAuthenticated, setIsAuthenticated, setAuthError, provider, setProvider } =
     useContext(AuthContext);
   const { userAccount, setUserAccount } = useContext(UserContext);
+  const { setDisplayMsg } = useContext(SnackbarContext);
+
 
   const connectWallet = async () => {
     try {
       setAuthError(false);
       setIsAuthenticating(true);
-      const provider = await web3Modal.connect();
+      const metamaskInstalled = typeof window.web3 !== 'undefined';
+      const provider = metamaskInstalled ? await web3Modal.connect() : setDisplayMsg("dfgfdg");
       await AutoNetworkSwitch(provider);
       setProvider(provider);
       const accountAddress = await getUserAccount(provider);
