@@ -49,3 +49,14 @@ export const getDiscordProfile = async (discordUsername: string) => {
 
   return undefined;
 };
+
+export const getClaimTokens = async (claimAddress: string) => {
+  if (claimAddress) {
+    try {
+      const responseData = await fetch('http://localhost:2020/claim/?address=' + claimAddress);
+      return await responseData.json();
+    } catch (e) {
+      console.log(e);
+    }
+  }
+};

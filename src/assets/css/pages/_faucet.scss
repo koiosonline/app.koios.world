@@ -1,0 +1,110 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(60, 60, 60, 0.1);
+
+  &__text-holder {
+    padding: $spacing-4x $spacing-2x;
+
+    @include for-size($desktop) {
+      padding: $spacing-4x $spacing-10x;
+    }
+
+    &__title {
+      font-family: Righteous, sans-serif;
+      font-size: 48px;
+      color: white;
+      margin-bottom: $spacing-2x;
+    }
+
+    &__description {
+      font-family: 'Source Sans Pro', sans-serif;
+      color: white;
+      font-size: 16px;
+
+      @include for-size($desktop) {
+        max-width: 635px;
+      }
+    }
+  }
+}
+
+.title-container {
+  display: flex;
+  flex-flow: row;
+  padding: $spacing-1x;
+  background-color: white;
+  margin-left: $spacing-2x;
+  margin-right: $spacing-2x;
+  justify-content: center;
+  border-radius: 20px;
+  transform: translateY(-$spacing-5x);
+  box-shadow: 0px 0px 21px -10px rgb(110 110 110 / 50%);
+  text-align: center;
+  min-height: 85px;
+
+  @include for-size($mobile) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+  }
+
+  @include for-size($tablet) {
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+  }
+
+  @include for-size($desktop) {
+    width: 450px;
+  }
+
+  @include for-size($desktop-large) {
+    width: 500px;
+  }
+
+  &__title {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 5vh;
+  }
+
+  &__wallet {
+    font-size: 10px;
+
+    @include for-size($mobile) {
+      font-size: 10px;
+    }
+
+    @include for-size($tablet) {
+      font-size: 15px;
+    }
+
+    @include for-size($desktop) {
+      width: 450px;
+    }
+
+    @include for-size($desktop-large) {
+      width: 500px;
+    }
+  }
+}
+
+.claim-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.claim-area {
+  width: 50%;
+  height: 10vh;
+  margin-bottom: 10px;
+  text-align: center;
+}

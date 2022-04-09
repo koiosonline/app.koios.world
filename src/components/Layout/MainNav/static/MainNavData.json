@@ -24,6 +24,11 @@
       "title": "Contribute",
       "linkTo": "/contribute",
       "icon": "handshake"
+    },
+    {
+      "title": "Faucet",
+      "linkTo": "/faucet",
+      "icon": "wallet"
     }
   ],
   "socials": [

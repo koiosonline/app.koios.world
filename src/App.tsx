@@ -16,9 +16,9 @@ import VacancyDetail from './pages/VacancyDetail';
 import { MarkdownEditor } from './pages/MarkdownEditor';
 import { AuthContextProvider } from './Context/AuthContext';
 import { UserContextProvider } from './Context/UserContext';
+import Faucet from './pages/Faucet';
 
 export const App = () => {
-
   return (
     <Router>
       <AuthContextProvider>
@@ -43,6 +43,7 @@ export const App = () => {
                   <Route path="/contribute" exact component={Contribute} />
                   <Route path="/explanation" exact component={ExplanationVideos} />
                   <Route path="/earn" exact component={Earn} />
+                  <Route path="/faucet" exact component={Faucet} />
                   <Route path="/earn/:vacancyDetail" exact component={VacancyDetail} />
                   <Route path="/" exact>
                     <Redirect to="/worlds" />

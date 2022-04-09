@@ -1,66 +1,66 @@
 // stylesheet imports
 
 /* Utils */
-@import "./utils/mixins";
-@import "./utils/variables";
+@import './utils/mixins';
+@import './utils/variables';
 
 /* Base */
-@import "./base/main";
-@import "./base/reset";
-@import "./base/grid";
-@import "./base/typography";
+@import './base/main';
+@import './base/reset';
+@import './base/grid';
+@import './base/typography';
 
 /* Pages */
-@import "./pages/worlds";
-@import "./pages/world-overview";
-@import "./pages/coming-soon";
-@import "./pages/authenticated";
-@import "./pages/unauthenticated";
-@import "./pages/WorldDetail";
-@import "./pages/leaderboard";
-@import "./pages/404";
-@import "./pages/Contribute";
-@import "./pages/ExplanationVideos";
-@import "./pages/Earn";
-@import "./pages/VacancyDetail";
-@import "./pages/markdown-editor";
+@import './pages/worlds';
+@import './pages/world-overview';
+@import './pages/coming-soon';
+@import './pages/authenticated';
+@import './pages/unauthenticated';
+@import './pages/WorldDetail';
+@import './pages/leaderboard';
+@import './pages/404';
+@import './pages/Contribute';
+@import './pages/ExplanationVideos';
+@import './pages/Earn';
+@import './pages/VacancyDetail';
+@import './pages/markdown-editor';
+@import './pages/faucet';
 
 /* Layout */
-@import "./layout/header";
-@import "./layout/main-nav";
-@import "./layout/buttons";
+@import './layout/header';
+@import './layout/main-nav';
+@import './layout/buttons';
 
 /* Modals */
-@import "src/assets/css/modals/modal";
-@import "src/assets/css/modals/modal-wallet-setup";
+@import 'src/assets/css/modals/modal';
+@import 'src/assets/css/modals/modal-wallet-setup';
 
 /* Components */
-@import "src/assets/css/components/course-card";
-@import "./components/profile-tabs/overview-tab";
-@import "./components/profile-tabs/settings-tab";
-@import "src/assets/css/components/QuickLinks";
-@import "src/assets/css/components/TabInfo";
-@import "src/assets/css/components/SetupModal";
-@import "src/assets/css/components/Quiz";
-@import "src/assets/css/components/ExploreMore";
-@import "src/assets/css/components/Loading";
-@import "src/assets/css/components/SmallCard";
-@import "src/assets/css/components/LearnToNavigate";
-@import "src/assets/css/components/LevelCards";
-@import "src/assets/css/components/Team";
-@import "src/assets/css/components/DiscordEmbed";
-@import "src/assets/css/components/vacanciesIntro";
-@import "src/assets/css/components/VacancyCard";
-@import "src/assets/css/components/markdown";
-@import "./components/progress-bar-profile-banner";
-@import "./components/metablocks";
-@import "./components/statistic-block";
-@import "./components/profile-banner";
-
+@import 'src/assets/css/components/course-card';
+@import './components/profile-tabs/overview-tab';
+@import './components/profile-tabs/settings-tab';
+@import 'src/assets/css/components/QuickLinks';
+@import 'src/assets/css/components/TabInfo';
+@import 'src/assets/css/components/SetupModal';
+@import 'src/assets/css/components/Quiz';
+@import 'src/assets/css/components/ExploreMore';
+@import 'src/assets/css/components/Loading';
+@import 'src/assets/css/components/SmallCard';
+@import 'src/assets/css/components/LearnToNavigate';
+@import 'src/assets/css/components/LevelCards';
+@import 'src/assets/css/components/Team';
+@import 'src/assets/css/components/DiscordEmbed';
+@import 'src/assets/css/components/vacanciesIntro';
+@import 'src/assets/css/components/VacancyCard';
+@import 'src/assets/css/components/markdown';
+@import './components/progress-bar-profile-banner';
+@import './components/metablocks';
+@import './components/statistic-block';
+@import './components/profile-banner';
 
 /* Font awesome */
-@import "~@fortawesome/fontawesome-free/scss/fontawesome";
-@import "~@fortawesome/fontawesome-free/scss/brands";
-@import "~@fortawesome/fontawesome-free/scss/regular";
-@import "~@fortawesome/fontawesome-free/scss/solid";
-@import "~@fortawesome/fontawesome-free/scss/v4-shims";
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/v4-shims';

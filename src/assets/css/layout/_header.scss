@@ -1,20 +1,23 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid rgba(60,60,60,.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid rgba(60, 60, 60, 0.1);
 
-    &__img-container {
-        width: 100px;
-        height: auto;
-    }
+  &__img-container {
+    width: 100px;
+    height: auto;
+  }
 
-    &__img {
-        width: 100%;
-        height: auto;
-    }
+  &__img {
+    width: 100%;
+    height: auto;
+  }
 
+  &__with-min-height {
+    min-height: 150px;
+  }
 }
