@@ -1,19 +1,24 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect, useState, useRef } from 'react';
 import { getClaimTokens } from '../api/Api';
 import { UserContext } from '../Context/UserContext';
 import ABI from '../components/Web3/static/ABI.json';
 import Web3 from 'web3';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 const Faucet = () => {
   const [hasClaimed, setHasClaimed] = useState();
   const { userAccount } = useContext(UserContext);
   const [apiResonse, setApiresonse] = useState({ message: '' });
+  const [captchaToken, setCaptchaToken] = useState('');
   const web3 = new Web3('https://rinkeby.infura.io/v3/8e4de63cfa6842e2811b357d94423d01');
-
   const contract = new web3.eth.Contract(JSON.parse(ABI.result), '0x600060B19BE5Cb622800A243e6aAFe9F672E58F2');
 
+  const updateCaptchaToken = (validToken: string) => {
+    setCaptchaToken(validToken);
+  };
+
   const claimTokens = async (claimAddress: string) => {
-    const response = await getClaimTokens(claimAddress);
+    const response = await getClaimTokens(claimAddress, captchaToken);
     setApiresonse(response);
   };
 
@@ -48,19 +53,22 @@ const Faucet = () => {
         <div className={'content-container'}>
           <div className={'claim-container'}>
             <div className={'claim-area'}>
-              <div onClick={() => claimTokens(userAccount.publicKey)} className={'btn-gradient'}>
-                <h1>CLAIM</h1>
-              </div>
+              <ReCAPTCHA onChange={updateCaptchaToken} sitekey={'6Lf5O3sfAAAAALveLE1r72IYLB2TknkxGVgBLTJ0'} />
+              {captchaToken && (
+                <div onClick={() => claimTokens(userAccount.publicKey)} className={'btn-gradient'}>
+                  <h1>CLAIM</h1>
+                </div>
+              )}
+              {apiResonse.message !== '' && <h2>{apiResonse.message}</h2>}
             </div>
           </div>
-          <div className={'claim-container'}>{apiResonse.message !== '' && <h2>{apiResonse.message}</h2>}</div>
         </div>
       )}
       {hasClaimed && (
         <div className={'content-container'}>
           <div className={'claim-container'}>
             <div className={'claim-area'}>
-              <h2>Addres has already claimed from the faucet.</h2>
+              <h2>Address has already claimed from the faucet.</h2>
             </div>
           </div>
         </div>

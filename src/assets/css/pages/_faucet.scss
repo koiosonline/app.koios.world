@@ -107,4 +107,9 @@
   height: 10vh;
   margin-bottom: 10px;
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }

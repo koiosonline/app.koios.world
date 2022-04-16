@@ -50,10 +50,16 @@ export const getDiscordProfile = async (discordUsername: string) => {
   return undefined;
 };
 
-export const getClaimTokens = async (claimAddress: string) => {
+export const getClaimTokens = async (claimAddress: string, captchaToken) => {
+  const requestOptions = {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ claimerAddress: claimAddress, captchaToken: captchaToken }),
+  };
+
   if (claimAddress) {
     try {
-      const responseData = await fetch('http://localhost:2020/claim/?address=' + claimAddress);
+      const responseData = await fetch('http://localhost:2020/claim', requestOptions);
       return await responseData.json();
     } catch (e) {
       console.log(e);
