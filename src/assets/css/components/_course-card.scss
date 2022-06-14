@@ -10,6 +10,11 @@
     background-color: white;
     text-decoration: none;
 
+    @include themify($themes) {
+      background-color: themed(elevation2);
+      box-shadow: 0px 0px 21px -10px themed(cardShadowActive);
+    }
+
     @include for-size($mobile, $desktop) {
       width: 19em;
     }
@@ -17,6 +22,10 @@
     &:hover {
       box-shadow: 0px 0px 21px -10px rgba(110, 110, 110, 1);
       transform: translateY(-0.5em);
+
+      @include themify($themes) {
+        box-shadow: 0px 0px 21px -10px themed(cardShadowActive);
+      }
     }
 
     &__img {
@@ -31,7 +40,10 @@
 
     &__title {
       margin: 1rem 0 0.5em;
-      color: $color-koios-dark-grey;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     .meta-data {
@@ -49,6 +61,11 @@
         font-weight: bold;
         margin-right: 1em;
 
+        @include themify($themes) {
+          background-color: themed(elevation3);
+          color: themed(textColor);
+        }
+
         &--duration {
           display: flex;
           flex-direction: row;
@@ -59,6 +76,10 @@
             width: 1em;
             height: 1em;
             fill: currentColor;
+
+            @include themify($themes) {
+              fill: themed(textColor);
+            }
           }
         }
       }
@@ -70,7 +91,10 @@
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
       overflow: hidden;
-      color: $color-koios-dark-grey;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
       
       @include for-size($desktop) {
         max-height: 6.2em;

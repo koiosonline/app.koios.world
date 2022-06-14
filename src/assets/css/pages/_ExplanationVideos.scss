@@ -40,6 +40,10 @@
   border-radius: 10px;
   box-shadow: 0 0 21px -10px rgb(110 110 110 / 50%);
 
+  @include themify($themes) {
+    background-color: themed(elevation2);
+  }
+
   @include for-size($tablet) {
     margin: -14rem auto $spacing-10x;
   }
@@ -55,19 +59,27 @@
     margin: 0 auto;
     max-width: 960px;
     border-bottom: 1px solid #e8e8e8;
-    padding: $spacing-2x;
+    padding: $spacing-2x 0;
     //border-radius: 10px;
 
     h1 {
       font-family: $font-family-headings;
       margin-bottom: $spacing-2x;
       color: $color-koios-dark-grey;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     p {
       max-width: 100%;
       color: $color-koios-dark-grey;
       font-weight: 700;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
 
       @include for-size($tablet) {
         max-width: 50%;
@@ -118,6 +130,10 @@
         li {
           padding: $spacing-1x;
           color: #b8b8b8;
+
+          @include themify($themes) {
+            color: themed(textColor);
+          }
         }
       }
     }

@@ -1,8 +1,10 @@
 // stylesheet imports
 
 /* Utils */
-@import "./utils/mixins";
 @import "./utils/variables";
+@import "./utils/themes";
+@import "./utils/themify";
+@import "./utils/mixins";
 @import "./utils/alert";
 
 /* Base */

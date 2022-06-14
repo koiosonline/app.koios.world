@@ -37,6 +37,7 @@ $color-text: $color-12;
 
 /* Gradients */
 $gradient-koios: linear-gradient(to right, $color-koios-pink 0%, $color-koios-blue 100%);
+$gradient-koios-dark: linear-gradient(to right, $color-koios-pink 0%, $color-koios-blue 200%);
 $gradient-koios-transparent: linear-gradient(to right, rgba(255, 11, 172, 0.5), rgba(47, 18, 220, 0.5));
 $gradient-koios-transparent-02: linear-gradient(to right, rgba(255, 11, 172, 0.3), rgba(47, 18, 220, 0.3));
 $gradient-koios-transparent-03: linear-gradient(to right, rgba(255, 11, 172, 0.05), rgba(47, 18, 220, 0.05));

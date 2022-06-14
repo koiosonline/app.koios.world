@@ -19,7 +19,7 @@ export const ArticlePageLinks = (props: ArticlePageLinksProps) => {
             replaceAmpersand: "and",
           })}`}
         >
-          <Icon type="arrow-left" className="page-link-icon" />
+          <Icon type="arrow-left"/>
           <div className="page-link-text">
             <span className="page-link-text__sub-title">Previous</span>
             <span className="page-link-text__video-title">{`${props.previousVideo.split(" ")[0]}`}</span>

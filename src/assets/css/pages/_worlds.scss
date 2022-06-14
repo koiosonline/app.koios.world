@@ -5,9 +5,13 @@
     font-family: Righteous, sans-serif;
     font-size: 2.5em;
     line-height: 59.6px;
-    margin: 1em 0 0;
+    padding: 1em 0 0;
     color: $color-text;
     text-align: center;
+
+    @include themify($themes) {
+      color: themed(textColor);
+    }
 
     @include for-size($desktop) {
       font-size: 3em;
@@ -21,7 +25,10 @@
     text-align: center;
     max-width: 25em;
     margin: 1.5em auto 15px;
-    color: $color-text;
+    
+    @include themify($themes) {
+      color: themed(textColor);
+    }
   }
 
   .card-container {
@@ -35,7 +42,7 @@
     max-width: 1080px;
 
     @include for-size($mobile, $desktop) {
-      padding: 0 2rem;
+      padding: 0 2rem $spacing-10x;
     }
   }
 }

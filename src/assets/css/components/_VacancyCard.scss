@@ -5,9 +5,18 @@
   transition: all .25s ease;
   position: relative;
 
+  @include themify($themes) {
+    background-color: themed(elevation2);
+    box-shadow: 0px 0px 21px -10px themed(cardShadow);
+  }
+
   &:hover {
     transform: translateY(-$spacing-2x);
     box-shadow: 0px 0px 21px -10px rgb(110 110 110 / 100%);
+
+    @include themify($themes) {
+      box-shadow: 0px 0px 21px -10px themed(cardShadowActive);
+    }
   }
 
   &__banner {
@@ -28,12 +37,20 @@
       color: $color-koios-dark-grey;
       padding-bottom: $spacing-1x;
       font-weight: 700;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__subtitle {
       color: #bbbbbb;
       font-size: 12px;
       padding-bottom: $spacing-1x;
+
+      @include themify($themes) {
+        color: themed(textColor-1);
+      }
     }
 
     &__description {
@@ -42,6 +59,10 @@
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
       overflow: hidden;
+
+      @include themify($themes) {
+        color: themed(textColor-1);
+      }
     }
   }
 
@@ -59,6 +80,7 @@
       max-height: $spacing-5x;
       object-fit: cover;
       background-color: white;
+      border-radius: 50%;
 
       &:first-child {
         margin-right: $spacing-2x;

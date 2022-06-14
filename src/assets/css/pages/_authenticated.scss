@@ -7,6 +7,10 @@
     text-align: center;
     font-family: $font-family-headings;
     font-size: 24px;
+
+    @include themify($themes) {
+      color: themed(textColor);
+    }
   }
 
   .profile-info {
@@ -19,6 +23,10 @@
       margin: 15px 10px 0;
       color: $color-11;
       font-weight: bold;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__icon,
@@ -104,6 +112,10 @@
         transform: scale(0);
         transform-origin: center;
 
+        @include themify($themes) {
+          background: themed(textActive);
+        }
+
         @include for-size(600px) {
           top: unset;
           bottom: 0;
@@ -116,6 +128,10 @@
       }
       &--active {
         color: $color-06;
+
+        @include themify($themes) {
+          color: themed(textActive);
+        }
 
         &::after {
           transform: scale(1);

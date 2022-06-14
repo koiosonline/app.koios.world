@@ -17,8 +17,16 @@
     text-decoration: none;
     padding: 10px 20px;
 
+    @include themify($themes) {
+      background-color: themed(elevation3);
+    }
+
     p {
       @include gradient-text;
+
+      @include themify($themes) {
+        background-color: themed(elevation3);
+      }
     }
 
     &:hover {

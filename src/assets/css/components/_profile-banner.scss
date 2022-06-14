@@ -68,6 +68,10 @@
       left: 50px;
     }
 
+    @include themify($themes) {
+      background-color: themed(elevation3);
+    }
+
     &:hover {
       transition: 2s;
       transform: rotateY(360deg);
@@ -86,6 +90,11 @@
       -webkit-transform: rotateY(-90deg);
       transform-origin: 100% 50%;
       -webkit-transform-origin: 100% 50%;
+
+      @include themify($themes) {
+        background-color: themed(elevation3);
+        background-image: themed(elevation3);
+      }
     }
 
     &:before {
@@ -100,6 +109,11 @@
       width: 150px;
       transform: translateZ(-5px);
       -webkit-transform: translateZ(-5px);
+
+      @include themify($themes) {
+        background-color: themed(elevation3);
+        background-image: themed(elevation3);
+      }
     }
 
     &__img {

@@ -4,19 +4,35 @@
     font-weight: 400;
     font-size: 1.5em;
     margin-bottom: 1em;
+    
+    @include themify($themes) {
+      color: themed(textColor);
+    }
   }
 
   h2 {
     font-size: 1.25em;
     margin-top: 32px;
+
+    @include themify($themes) {
+      color: themed(textColor);
+    }
   }
 
   h3 {
     font-size: 1em;
+
+    @include themify($themes) {
+      color: themed(textColor);
+    }
   }
 
   p {
     margin-top: 16px;
+
+    @include themify($themes) {
+      color: themed(textColor);
+    }
   }
 
   img {
@@ -31,8 +47,17 @@
     border-left: 4px solid $color-koios-blue;
     background-color: rgb(245, 247, 249);
 
+    @include themify($themes) {
+      color: themed(textColor);
+      background-color: themed(elevation2);
+    }
+
     p {
       margin: 0;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
   }
 
@@ -44,6 +69,10 @@
   ul,
   ol {
     margin-left: 20px;
+
+    @include themify($themes) {
+      color: themed(textColor);
+    }
   }
 
   ul {
@@ -68,10 +97,19 @@
       color: $color-koios-pink;
       background-color: #fff;
 
+      @include themify($themes) {
+        color: themed(textColor);
+        background-color: themed(elevation2);
+      }
+
       &:hover {
         color: $color-koios-blue;
         border-color: $color-koios-blue;
         transition: all 0.2s ease;
+
+        @include themify($themes) {
+          color: themed(textColor);
+        }
       }
 
       span {

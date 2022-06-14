@@ -44,6 +44,11 @@
   transform: translateY(-$spacing-5x);
   box-shadow: 0px 0px 21px -10px rgb(110 110 110 / 50%);
 
+  @include themify($themes) {
+    background-color: themed(elevation2);
+    box-shadow: 0px 0px 21px -10px themed(cardShadow);
+  }
+
   @include for-size($tablet) {
     margin-left: auto;
     margin-right: auto;
@@ -70,30 +75,47 @@
     color: $color-koios-dark-grey;
     text-align: center;
 
+    &:nth-child(2) {
+      margin: 0 $spacing-1x;
+    }
+
     @include for-size($tablet) {
       padding: $spacing-3x;
       font-size: 16px;
     }
 
+    @include themify($themes) {
+      color: themed(textColor-1);
+    }
+
     &:hover {
       background-color: #f2f2f2;
       color: $color-koios-pink;
+
+      @include themify($themes) {
+        background-color: themed(elevation3);
+      }
     }
 
     &--active {
       background-color: #f2f2f2;
       color: $color-koios-pink;
+
+      @include themify($themes) {
+        background-color: themed(elevation3);
+        color: themed(textActive-2)
+      }
     }
   }
 }
 
 .vacancies {
   max-width: 1080px;
-  margin: $spacing-10x auto;
+  margin: $spacing-10x auto 0;
   padding: 0 $spacing-2x $spacing-10x;
 
   @include for-size($desktop) {
-    padding: 0 $spacing-10x;
+    padding: 0 $spacing-10x $spacing-10x;
   }
 
   .categories {
@@ -126,6 +148,10 @@
       font-size: 14px;
       font-weight: 700;
       color: #8e8e8e;
+
+      @include themify($themes) {
+        background-color: themed(elevation2);
+      }
 
       &:hover {
         border: 2px solid $color-koios-pink;
@@ -162,7 +188,7 @@
   padding: 0 $spacing-2x $spacing-10x;
 
   @include for-size($desktop) {
-    padding: 0 $spacing-10x;
+    padding: 0 $spacing-10x $spacing-10x;
   }
 
   &__header {
@@ -174,6 +200,16 @@
       font-family: $font-family-headings;
       padding-bottom: $spacing-2x;
       color: $color-koios-dark-grey;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
+    }
+
+    p {
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     .sub-title {
@@ -197,6 +233,10 @@
     &__number {
       font-family: $font-family-headings;
       font-size: 48px;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__text-holder {
@@ -208,6 +248,10 @@
         font-size: 18px;
         color: $color-koios-dark-grey;
         padding-bottom: $spacing-4x;
+
+        @include themify($themes) {
+          color: themed(textColor);
+        }
       }
 
       a {
@@ -218,6 +262,11 @@
         border-radius: 20px;
         border: 2px solid transparent;
         transition: color, border .25s ease;
+
+        @include themify($themes) {
+          color: themed(textColor);
+          background-color: themed(elevation3);
+        }
 
         &:hover {
           border: 2px solid $color-koios-pink;

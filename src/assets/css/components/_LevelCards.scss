@@ -21,10 +21,18 @@
       font-size: 24px;
       padding-bottom: $spacing-2x;
       color: $color-koios-dark-grey;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__description {
       color: $color-koios-dark-grey;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
   }
 

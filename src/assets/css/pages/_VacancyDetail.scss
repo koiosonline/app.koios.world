@@ -14,6 +14,10 @@
     box-shadow: 0px 0px 21px -10px rgb(110 110 110 / 50%);
     border-radius: 20px;
 
+    @include themify($themes) {
+      background-color: themed(elevation2);
+    }
+
     &__header {
       display: flex;
       flex-flow: row;
@@ -41,6 +45,10 @@
       color: $color-koios-dark-grey;
       padding: 0 0 $spacing-2x 0;
       font-weight: 400;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__descriptionTitle {
@@ -48,12 +56,20 @@
       padding: $spacing-2x 0 0;
       font-size: 16px;
       font-weight: 700;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__description {
       color: $color-koios-dark-grey;
       padding: $spacing-2x 0;
       border-bottom: 1px solid #f2f2f2;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__skillsetTitle {
@@ -61,12 +77,20 @@
       padding: $spacing-2x 0 0;
       font-size: 16px;
       font-weight: 700;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__skillset {
       color: $color-koios-dark-grey;
       padding: $spacing-2x 0;
       border-bottom: 1px solid #f2f2f2;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__typeTitle {
@@ -74,12 +98,20 @@
       padding: $spacing-2x 0;
       font-size: 16px;
       font-weight: 700;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__typeList {
       color: $color-koios-dark-grey;
       list-style-type: disc;
       list-style-position: inside;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__buttonTitle {
@@ -87,12 +119,17 @@
       padding: $spacing-2x 0;
       font-size: 16px;
       font-weight: 700;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__buttonContainer {
       display: flex;
       justify-content: flex-end;
       margin-top: $spacing-4x;
+      
     }
 
     &__button {
@@ -103,6 +140,11 @@
       border-radius: 20px;
       border: 2px solid lightgray;
       transition: color, border .25s ease;
+
+      @include themify($themes) {
+        color: themed(textColor);
+        background-color: themed(elevation2);
+      }
 
       &:hover {
         color: $color-koios-pink;
@@ -147,6 +189,10 @@
       padding-bottom: $spacing-2x;
       color: $color-koios-dark-grey;
 
+      @include themify($themes) {
+        color: themed(textColor);
+      }
+
       @include for-size($tablet) {
         max-width: 40%;
       }
@@ -154,6 +200,10 @@
 
     &__description {
       color: $color-koios-dark-grey;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
 
       @include for-size($tablet) {
         width: 50%;
@@ -165,6 +215,10 @@
 
       &--discord {
         width: 100%;
+
+        @include themify($themes) {
+          color: themed(textColor);
+        }
 
         span {
           font-weight: 700;
@@ -185,6 +239,10 @@
 
       span {
         font-weight: 700;
+
+        @include themify($themes) {
+          color: themed(textColor);
+        }
       }
 
       img {

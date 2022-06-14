@@ -76,6 +76,10 @@
   transition: border .25s ease;
   border-radius: 10px;
 
+  @include themify($themes) {
+    background-color: themed(elevation1);
+  }
+
   &:hover {
     color: $color-koios-pink;
     border: 1px solid $color-koios-pink;
@@ -93,6 +97,10 @@
     text-align: center;
     font-weight: 700;
     transition: color .25s ease;
+
+    @include themify($themes) {
+      color: themed(textColor);
+    }
 
     &:hover {
       color: $color-koios-pink;

@@ -18,10 +18,18 @@
       font-family: $font-family-headings;
       color: $color-koios-dark-grey;
       margin-bottom: $spacing-2x;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
     &__description {
       margin-bottom: $spacing-2x;
       color: $color-koios-dark-grey;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     .links {

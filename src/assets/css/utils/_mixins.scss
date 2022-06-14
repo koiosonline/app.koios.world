@@ -1,3 +1,5 @@
+@import './themes';
+
 @mixin for-size($size, $max-size: null) {
   @if ($max-size) {
     @media only screen and (min-width: $size) and (max-width: $max-size) {
@@ -11,10 +13,13 @@
 }
 
 @mixin gradient-text() {
-  color: $color-01;
-  background: -webkit-linear-gradient(45deg, $color-01, $color-02);
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  display: inline-block;
-  background-size: 100%;
+  @include themify($themes) {
+    display: inline-block;
+    color: $color-01;
+    background: themed(buttonGradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100%;
+  }
 }

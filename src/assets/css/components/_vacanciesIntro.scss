@@ -12,6 +12,10 @@
     font-size: 36px;
     color: $color-koios-dark-grey;
     margin-bottom: $spacing-2x;
+
+    @include themify($themes) {
+      color: themed(textColor);
+    }
   }
 
   &__description {
@@ -20,6 +24,10 @@
 
     @include for-size($desktop) {
       max-width: 635px;
+    }
+
+    @include themify($themes) {
+      color: themed(textColor);
     }
   }
 }

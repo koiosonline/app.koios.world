@@ -25,6 +25,10 @@
     margin: $spacing-2x auto;
     max-width: 270px;
 
+    @include themify($themes) {
+      background-color: themed(elevation3);
+    }
+
     @include for-size($tablet) {
       max-width: 230px;
     }
@@ -43,16 +47,28 @@
         width: 50px;
         height: 50px;
         fill: #6D59E6;
+
+        @include themify($themes) {
+          fill: themed(cardiconfill);
+        }
       }
     }
     &__title {
       font-family: $font-family-headings;
       color: $color-koios-dark-grey;
       font-size: 2rem;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__description {
       margin-bottom: $spacing-2x;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__link {
@@ -69,6 +85,10 @@
       transition: background-color .25s ease;
       font-size: 16px;
       cursor: pointer;
+
+      @include themify($themes) {
+        background-color: themed(pinkButton);
+      }
 
       &:hover {
         background-color: rgba(204, 8, 137, 80%);

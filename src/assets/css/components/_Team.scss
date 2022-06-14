@@ -14,15 +14,27 @@
       color: $color-koios-dark-grey;
       font-size: 32px;
       padding-bottom: $spacing-2x;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__subtitle {
       font-weight: 600;
       padding-bottom: $spacing-2x;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
 
     &__paragraph {
       padding-bottom: $spacing-2x;
+
+      @include themify($themes) {
+        color: themed(textColor);
+      }
     }
   }
 
@@ -55,6 +67,10 @@
         color: $color-koios-dark-grey;
         text-align: center;
         margin-bottom: $spacing-1x;
+
+        @include themify($themes) {
+          color: themed(textColor);
+        }
       }
 
       &__description {
@@ -62,6 +78,10 @@
         font-size: 14px;
         margin-bottom: $spacing-1x;
         flex-grow: 1;
+
+        @include themify($themes) {
+          color: themed(textColor);
+        }
       }
 
       .socials {

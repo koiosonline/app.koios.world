@@ -2,6 +2,7 @@ import { Icon } from '../../Util/Icon';
 import { SvgSprite } from '../../Util/SvgSprite';
 import { AddTokenToWallet } from '../../Web3/AddTokenToWallet';
 import { useWeb3 } from '../../Web3/useWeb3';
+import { ThemeSwitch } from '../../../components/ThemeSwitch';
 
 type SettingProps = {
   label: string;
@@ -38,6 +39,7 @@ export const SettingsTab: React.FC<SettingsTabProps> = () => {
   return (
     <div className="settings-tab">
       <ul className="settings">
+        <ThemeSwitch/>
         {window.ethereum && (
           <li className="btn btn-primary" onClick={()=>AddTokenToWallet(window.ethereum)}>
             <>
