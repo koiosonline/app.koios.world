@@ -15,6 +15,8 @@ import { Markdown } from "../../components/Markdown";
 import { ArticlePageLinks } from "../../components/ArticlePageLinks";
 import { compiler } from "markdown-to-jsx";
 import { ContentPlayer } from "../../components/ContentPlayer";
+import { hasHomework } from "../../components/Util/Assignment";
+import { Icon } from "../../components/Util/Icon";
 
 export const WorldDetail = () => {
   const [videoContent, setVideoContent] = useState<SingleVideo>();
@@ -24,6 +26,7 @@ export const WorldDetail = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [courseData, setCourseData] = useState<any[]>();
   const [literatureOfVideo, setliteratureOfVideo] = useState<string>();
+  const [videoHasHomework, setVideoHasHomework] = useState<boolean>();
   const [videoList, setVideoList] = useState<any[]>();
   const [extraInfo, setExtraInfo] = useState<any[]>();
   const [quizState, setQuizState] = useState<boolean>(false);
@@ -75,6 +78,7 @@ export const WorldDetail = () => {
     setliteratureOfVideo(literature);
     const getCourseData = await getVideoInfo(courseLevel.data);
     setCourseData(getCourseData);
+    setVideoHasHomework(hasHomework(literature));
     setIsLoading(false);
   };
 
@@ -119,10 +123,10 @@ export const WorldDetail = () => {
   };
 
   const generateTableOfContents = async () => {
-    const compiledMarkdown = await compiler(`${literatureOfVideo}`, {
+    const compiledMarkdown = compiler(`${literatureOfVideo}`, {
       forceBlock: true,
     });
-    const filterHeadings = await compiledMarkdown.props.children.filter(
+    const filterHeadings = compiledMarkdown.props.children.filter(
       (item) =>
         item.type === "h1" ||
         item.type === "h2" ||
@@ -131,7 +135,7 @@ export const WorldDetail = () => {
         item.type === "h5" ||
         item.type === "h6"
     );
-    const headings = await filterHeadings.map((item) => {
+    const headings = filterHeadings.map((item) => {
       return {
         id: item.props.id,
         title: item.props.children[0],
@@ -192,6 +196,16 @@ export const WorldDetail = () => {
                   <button onClick={openQuiz} className={"cta-button"}>
                     <img className="cta-button__img" src={"/images/scroll-solid.svg"} alt={"sheets"} />
                     <p className="cta-button__text">Quiz</p>
+                  </button>
+                )}
+
+                {videoHasHomework && (
+                  <button onClick={()=>document.getElementById(
+                    tableOfContents.find(c=>c.title.includes("Portfolio assignment"))?.id
+                  )?.scrollIntoView()} 
+                  className={"cta-button"}>
+                    <Icon type="file-word" className="cta-button__img" />
+                    <p className="cta-button__text">Homework</p>
                   </button>
                 )}
               </div>
